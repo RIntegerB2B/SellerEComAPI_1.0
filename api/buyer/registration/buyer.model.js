@@ -14,7 +14,9 @@ const BuyerSchema = new mongoose.Schema({
     address2:String,
     isActive: Boolean,
     approvedBySeller:Boolean,
-    createdDate: { type: Date, default: Date.now }
+    createdDate: { type: Date, default: Date.now },
+    securityQuestion: String,
+    securityAnswer: String
   });
 
   const Buyer = mongoose.model('Buyer', BuyerSchema);

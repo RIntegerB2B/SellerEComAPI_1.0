@@ -1,6 +1,6 @@
 var express = require('express'),
   app = express(),
-  port = process.env.PORT || 3005,
+  port = process.env.PORT || 3006,
   bodyParser = require('body-parser');
   var mysql = require('mysql');
 var cors = require('cors');
@@ -8,9 +8,9 @@ app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 app.use(cors());
 var contentUploadRoutes = require('../api/routes/contentUploadRoutes'); //importing route
-var contentViewRoutes = require('../api/routes/contentViewRoute'); //importing route
+var buyerRegistrationRoutes = require('./buyer/registration/buyerRegistrationRoute'); //importing route
 contentUploadRoutes(app); //register the route
-//contentViewRoutes(app);
+buyerRegistrationRoutes(app);
 app.listen(port);
 
 
@@ -33,9 +33,6 @@ app.get('/listUsers', function (req, res) {
 })
 
 
-
-contentUploadRoutes(app);
-contentViewRoutes(app);
 
 console.log('Seller ECom RESTful API server started on: ' + port);
 
