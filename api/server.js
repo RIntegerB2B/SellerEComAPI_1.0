@@ -2,19 +2,18 @@ var express = require('express'),
   app = express(),
   port = process.env.PORT || 3006,
   bodyParser = require('body-parser');
-  var mysql = require('mysql');
-var cors = require('cors');
+  var cors = require('cors');
 app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 app.use(cors());
 var contentUploadRoutes = require('../api/routes/contentUploadRoutes'); //importing route
-var buyerRegistrationRoutes = require('./buyer/registration/buyerRegistrationRoute'); //importing route
+var buyerAccountRoutes = require('./buyerAccount/buyerAccountRoute'); //importing route
 contentUploadRoutes(app); //register the route
-buyerRegistrationRoutes(app);
+buyerAccountRoutes(app);
 app.listen(port);
 
 
-var mongoDbConfig = require('../api/config/mongoDatabase.config');
+var mongoDbConfig = require('./config/mongoDatabase.config');
 var mongoose = require('mongoose');
 
 mongoose.connect(mongoDbConfig.url, {
