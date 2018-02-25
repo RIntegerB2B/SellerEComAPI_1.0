@@ -8,8 +8,10 @@ app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 app.use(cors());
 var contentUploadRoutes = require('../api/routes/contentUploadRoutes'); //importing route
 var buyerAccountRoutes = require('./buyerAccount/buyerAccountRoute'); //importing route
+var adminAccountRoutes = require('./adminAccount/adminAccountRoute');
 contentUploadRoutes(app); //register the route
 buyerAccountRoutes(app);
+adminAccountRoutes(app);
 app.listen(port);
 
 

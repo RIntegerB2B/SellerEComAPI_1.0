@@ -19,7 +19,7 @@ exports.getContents = function(req, res) {
     if(err) {
       res.status(500).send({message: "Some error occurred while retrieving notes."});
     } else {
-    contents.sort(function(a, b){
+      contents = contents.sort(function(a, b){
         return a.publishId - b.publishId;
     });
     res.send(contents);
