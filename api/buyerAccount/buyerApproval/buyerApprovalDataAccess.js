@@ -18,5 +18,6 @@ exports.approveBuyer = function(req, res) {
     approvedBySeller: req.body.approvedBySeller
     }, function(err, affected, resp) {
           console.log(resp);
+          res.send(affected);
         })
 };
