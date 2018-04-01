@@ -34,7 +34,10 @@ app.get('/listUsers', function (req, res) {
   res.end( "Asd" );
 })
 
-
+app.use(function (err, req, res, next) {
+  console.error(err.stack);
+  next(err);
+})
 
 console.log('Seller ECom RESTful API server started on: ' + port);
 
