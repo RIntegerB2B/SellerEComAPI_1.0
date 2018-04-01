@@ -14,3 +14,18 @@ exports.signInToSite = function(req, res) {
 };
 
 
+exports.createContent = function(req, res) {
+    var adminAccount = new AdminAccount(req.body);
+  
+    adminAccount.save(function(err, contentData) {
+      if (err){
+        res.send(err);
+        console.log(err);
+      }
+      else{
+        res.send(contentData);
+        console.log(contentData);
+      }
+    });
+};
+
